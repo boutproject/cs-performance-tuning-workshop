@@ -1,0 +1,63 @@
+Command:        /cosma/home/do008/dc-park1/STORM/storm3d/filaments
+Resources:      2 nodes (32 physical, 64 logical cores per node)
+Memory:         503 GiB per node
+Tasks:          64 processes
+Machine:        b109.pri.cosma7.alces.network
+Start time:     Fri Jan 22 17:11:18 2021
+Total time:     893 seconds (about 15 minutes)
+Full path:      /cosma/home/do008/dc-park1/STORM/storm3d
+
+Summary: filaments is MPI-bound in this configuration
+Compute:                                      8.2% ||
+MPI:                                         91.4% |========|
+I/O:                                          0.4% ||
+This application run was MPI-bound. A breakdown of this time and advice for investigating further is in the MPI section below. 
+
+CPU:
+A breakdown of the 8.2% CPU time:
+Scalar numeric ops:                          32.0% |==|
+Vector numeric ops:                           1.0% ||
+Memory accesses:                             67.0% |======|
+The per-core performance is memory-bound. Use a profiler to identify time-consuming loops and check their cache performance.
+Little time is spent in vectorized instructions. Check the compiler's vectorization advice to see why key loops could not be vectorized.
+
+MPI:
+A breakdown of the 91.4% MPI time:
+Time in collective calls:                     0.1% ||
+Time in point-to-point calls:                99.9% |=========|
+Effective process collective rate:            36.1 bytes/s
+Effective process point-to-point rate:        19.9 MB/s
+Most of the time is spent in point-to-point calls with a low transfer rate. This can be caused by inefficient message sizes, such as many small messages, or by imbalanced workloads causing processes to wait.
+
+I/O:
+A breakdown of the 0.4% I/O time:
+Time in reads:                               20.4% |=|
+Time in writes:                              79.6% |=======|
+Effective process read rate:                  3.96 GB/s
+Effective process write rate:                 1.04 GB/s
+Most of the time is spent in write operations with a high effective transfer rate. It may be possible to achieve faster effective transfer rates using asynchronous file operations.
+
+Threads:
+A breakdown of how multiple threads were used:
+Computation:                                  0.0% |
+Synchronization:                              0.0% |
+Physical core utilization:                   99.6% |=========|
+System load:                                104.6% |=========|
+No measurable time is spent in multithreaded code.
+
+Memory:
+Per-process memory usage may also affect scaling:
+Mean process memory usage:                    64.5 MiB
+Peak process memory usage:                    85.0 MiB
+Peak node memory usage:                       3.0% ||
+The peak node memory usage is very low. Running with fewer MPI processes and more data on each process may be more efficient.
+
+Energy:
+A breakdown of how energy was used:
+CPU:                                      not supported
+System:                                   not supported
+Mean node power:                          not supported
+Peak node power:                              0.00 W
+Energy metrics are not available on this system.
+CPU metrics are not supported (no intel_rapl module)
+
