@@ -10,3 +10,8 @@ $ sbatch scaling_<n>.sbatch
 
 Output is written to `test_run_<n>.log`.
 
+To plot the data, do
+
+```
+$ python plot_scaling.py
+```
