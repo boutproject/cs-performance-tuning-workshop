@@ -31,7 +31,7 @@ def get_scaling_efficiency(nprocs, times):
     return 100.0 * times[0] * nprocs[0] / (times * nprocs)
 
 
-def plot_strong_scaling(nprocs, times):
+def plot_strong_scaling(nprocs, times, fname="strong_scaling.png"):
     """ Plot the strong scaling """
 
     ideal = times[0] * nprocs[0] / nprocs
@@ -50,11 +50,11 @@ def plot_strong_scaling(nprocs, times):
     plt.grid()
     plt.xlabel("MPI ranks")
     plt.ylabel("Run time / secs")
-    plt.savefig("strong_scaling.png")
+    plt.savefig(fname)
     plt.clf()
 
 
-def plot_scaling_efficiency(nprocs, efficiency):
+def plot_scaling_efficiency(nprocs, efficiency, fname="scaling_efficiency.png"):
     """ Plot the scaling efficiency """
 
     plt.semilogx(nprocs, efficiency, "o-")
@@ -66,7 +66,7 @@ def plot_scaling_efficiency(nprocs, efficiency):
     plt.grid()
     plt.xlabel("MPI ranks")
     plt.ylabel("Scaling efficiency versus 2 cores (%)")
-    plt.savefig("scaling_efficiency.png")
+    plt.savefig(fname)
     plt.clf()
 
 
@@ -79,6 +79,16 @@ def main():
 
     plot_strong_scaling(nprocs, times)
     plot_scaling_efficiency(nprocs, efficiency)
+
+    nprocs = np.array([2, 4, 8, 16, 32, 64])
+
+    times = read_run_times(nprocs)
+    efficiency = get_scaling_efficiency(nprocs, times)
+
+    plot_strong_scaling(nprocs, times, fname="strong_scaling_with_2_nodes.png")
+    plot_scaling_efficiency(
+        nprocs, efficiency, fname="scaling_efficiency_with_2_nodes.png"
+    )
 
 
 if __name__ == "__main__":
