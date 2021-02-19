@@ -1,8 +1,9 @@
 # Basic scaling
 
 This contains files and results for a strong scaling of STORM's nonisothermal
-test case.  `sbatch` files should be submitted from
-`STORM/tests3d/test-nonisothermal`, by doing
+test case for intel-intelmpi and gcc-openmpi toolchains.
+`sbatch` files should be submitted from `STORM/tests3d/test-nonisothermal`, by
+doing
 
 ```
 $ sbatch scaling_<n>.sbatch
@@ -16,14 +17,4 @@ To plot the data, do
 $ python3 plot_scaling.py
 ```
 
-## gcc/openmpi scaling
-
-Branch above used icc/intelmpi. Data for code compiled with gcc/opnmpi is in
-the `gcc-openmpi` subdirectory.
-
-To plot do
-
-```
-$ cd gcc-openmpi
-$ python3 plot_scaling.py
-```
+from either the intel-intelmpi or gcc-openmpi subdirectory.
