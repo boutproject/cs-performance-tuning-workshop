@@ -11,7 +11,14 @@ $ sbatch scaling_<n>.sbatch
 
 Output is written to `test_run_<n>.log`.
 
-To plot the data, do
+To plot the data for both cases, do
+
+```
+$ python3 plot_scaling.py
+```
+
+in this directory. 
+Alternatively, plot the data for one case by doing
 
 ```
 $ python3 plot_scaling.py
