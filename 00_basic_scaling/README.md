@@ -13,5 +13,17 @@ Output is written to `test_run_<n>.log`.
 To plot the data, do
 
 ```
-$ python plot_scaling.py
+$ python3 plot_scaling.py
+```
+
+## gcc/openmpi scaling
+
+Branch above used icc/intelmpi. Data for code compiled with gcc/opnmpi is in
+the `gcc-openmpi` subdirectory.
+
+To plot do
+
+```
+$ cd gcc-openmpi
+$ python3 plot_scaling.py
 ```
