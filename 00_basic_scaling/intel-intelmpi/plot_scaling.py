@@ -43,10 +43,10 @@ def plot_strong_scaling(nprocs, times, fname="strong_scaling.png"):
     plt.minorticks_off()
     ax.set_xticks(nprocs)
     ax.set_xticklabels(nprocs)
-    tvec = [100, 200, 300, 400, 500, 600, 700, 1000, 1400, 1800]
+    tvec = [200, 300, 400, 500, 600, 700, 1000, 1400]
     ax.set_yticks(tvec)
     ax.set_yticklabels(tvec)
-    plt.ylim(100, 1800)
+    plt.ylim(200, 1500)
     plt.grid()
     plt.xlabel("MPI ranks")
     plt.ylabel("Run time / secs")
@@ -80,14 +80,14 @@ def main():
     plot_strong_scaling(nprocs, times)
     plot_scaling_efficiency(nprocs, efficiency)
 
-    nprocs = np.array([2, 4, 8, 16, 32, 64, 128])
+    nprocs = np.array([2, 4, 8, 16, 32, 64])
 
     times = read_run_times(nprocs)
     efficiency = get_scaling_efficiency(nprocs, times)
 
-    plot_strong_scaling(nprocs, times, fname="strong_scaling_with_4_nodes.png")
+    plot_strong_scaling(nprocs, times, fname="strong_scaling_with_2_nodes.png")
     plot_scaling_efficiency(
-        nprocs, efficiency, fname="scaling_efficiency_with_4_nodes.png"
+        nprocs, efficiency, fname="scaling_efficiency_with_2_nodes.png"
     )
 
 
