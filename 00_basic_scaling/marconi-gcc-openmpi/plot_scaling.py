@@ -49,10 +49,10 @@ def plot_strong_scaling(nprocs, times, fname="strong_scaling.png"):
     plt.minorticks_off()
     ax.set_xticks(nprocs)
     ax.set_xticklabels(nprocs)
-    tvec = [70, 100, 200, 300, 400, 500, 600, 700, 1000, 1400, 1800]
+    tvec = [100, 200, 350, 600, 1200, 2500, 5000]
     ax.set_yticks(tvec)
     ax.set_yticklabels(tvec)
-    plt.ylim(70, 1800)
+    plt.ylim(50, 6000)
     plt.grid()
     plt.xlabel("MPI ranks")
     plt.ylabel("Run time / secs")
