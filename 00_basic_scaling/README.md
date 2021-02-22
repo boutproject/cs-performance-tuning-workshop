@@ -25,3 +25,6 @@ $ python3 plot_scaling.py
 ```
 
 from either the intel-intelmpi or gcc-openmpi subdirectory.
+
+There is also data from Marconi (using gcc/openmpi) in the marconi-gcc-openmpi
+subdirectory.

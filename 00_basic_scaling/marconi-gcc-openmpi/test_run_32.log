@@ -1,0 +1,573 @@
+BOUT++ version 4.4.0-alpha
+Revision: 0d1a1032433dcc869fb13d41d72342e5d8f6b810
+MD5 checksum: 909e1e21f2d229e67815ac4387382640
+Code compiled on Feb 19 2021 at 16:44:46
+
+B.Dudson (University of York), M.Umansky (LLNL) 2007
+Based on BOUT by Xueqiao Xu, 1999
+
+Processor number: 0 of 32
+
+pid: 24589
+
+Compile-time options:
+	Checking disabled
+	Signal handling enabled
+	netCDF4 support enabled
+	Parallel NetCDF support disabled
+	OpenMP parallelisation disabled
+	Compiled with flags : "-DMD5SUM=909e1e21f2d229e67815ac4387382640 -DREVISION=0d1a1032433dcc869fb13d41d72342e5d8f6b810 -g -DHAS_PRETTY_FUNCTION -Wall -Wextra -Wnull-dereference -O3 -march=native -funroll-loops -DSIGHANDLE -DLOGCOLOR -DBOUT_VERSION_STRING=\"4.4.0-alpha\" -DBOUT_VERSION_DOUBLE=4.40 -DBACKTRACE -DBOUT_HAS_FFTW -DNCDF4 -DBOUT_HAS_PETSC -DBOUT_HAS_IDA -DBOUT_HAS_CVODE -DBOUT_HAS_ARKODE -DBOUT_HAS_PVODE -DBOUT_HAS_GETTEXT -DBOUT_LOCALE_PATH=/usr/local/share/locale"
+	Command line options for this run : ../../storm3d/filaments 
+Reading options file data/BOUT.inp
+Writing options to file data/BOUT.settings
+
+Getting grid data from options
+	Option mesh:type = bout (default)
+	Option mesh:staggergrids = true (data/BOUT.inp)
+	Option mesh:maxregionblocksize = 64 (default)
+	Option mesh:calcParallelSlices_on_communicate = 1 (default)
+	Option mesh:ddy:upwind = u2 (data/BOUT.inp)
+	Option mesh:ddz:first = c2 (data/BOUT.inp)
+	Option mesh:ddz:second = c2 (data/BOUT.inp)
+	Option mesh:ddy:upwind = u2 (data/BOUT.inp)
+	Option mesh:ddy:upwind = u2 (data/BOUT.inp)
+	Option mesh:ddz:first = c2 (data/BOUT.inp)
+	Option mesh:ddz:second = c2 (data/BOUT.inp)
+	Option mesh:ddy:upwind = u2 (data/BOUT.inp)
+	Option mesh:ddz:fft_filter = 0 (default)
+	Option mesh:symmetricGlobalX = 1 (default)
+	Option optionfile = BOUT.inp ()
+WARNING: The default of this option has changed in release 4.1.
+If you want the old setting, you have to specify mesh:symmetricGlobalY=false in BOUT.inp
+	Option mesh:symmetricGlobalY = 1 (default)
+Loading mesh
+	Option input:transform_from_field_aligned = 1 (default)
+	Option mesh:nx = 196 (data/BOUT.inp)
+	Option mesh:ny = 16 (data/BOUT.inp)
+Variable 'nz' not in mesh options. Setting to 0
+	Option mz = 128 (data/BOUT.inp)
+	Option nz = 128 (default)
+	Grid size: 196 x 16 x 128
+Variable 'MXG' not in mesh options. Setting to 0
+	Option mxg = 2 (data/BOUT.inp)
+Variable 'MYG' not in mesh options. Setting to 0
+	Option MYG = 2 (default)
+	Guard cells (x,y,z): 2, 2, 0
+	Option mesh:ixseps1 = -1 (data/BOUT.inp)
+	Option mesh:ixseps2 = 0 (data/BOUT.inp)
+Variable 'jyseps1_1' not in mesh options. Setting to -1
+Variable 'jyseps1_2' not in mesh options. Setting to 8
+Variable 'jyseps2_1' not in mesh options. Setting to 8
+Variable 'jyseps2_2' not in mesh options. Setting to 15
+Variable 'ny_inner' not in mesh options. Setting to 8
+Finding value for NXPE (ideal = 19.595918)
+	Candidate value: 2
+	 -> ny/NYPE (16/16 = 1) must be >= MYG (2)
+	Candidate value: 4
+	 -> Good value
+	Candidate value: 8
+	 -> Good value
+	Candidate value: 16
+	 -> Good value
+	Candidate value: 32
+	 -> Good value
+	Domain split (NXPE=16, NYPE=2) into domains (localNx=12, localNy=8)
+	Option IncIntShear = 0 (default)
+	Option periodicX = 0 (default)
+	Option async_send = 0 (default)
+	Option zmin = 0 (data/BOUT.inp)
+	Option zmax = 15.9155 (data/BOUT.inp)
+	EQUILIBRIUM IS SINGLE NULL (SND) 
+	MYPE_IN_CORE = 0
+	DXS = 0, DIN = -1. DOUT = -1
+	UXS = 0, UIN = -1. UOUT = 16
+	XIN = -1, XOUT = 1
+	Twist-shift: 
+	Option TwistShift = 0 (default)
+Variable 'ShiftAngle' not in mesh options. Setting to empty vector
+Boundary regions in this processor: core, lower_target, 
+Constructing default regions
+	Boundary region inner X
+	Option mesh:extrapolate_x = 0 (default)
+	Option mesh:extrapolate_y = 0 (default)
+	Option mesh:dx = lx/(nx-4) (data/BOUT.inp)
+	Option mesh:lx = 150.0 (data/BOUT.inp)
+	Option mesh:nx = 196 (data/BOUT.inp)
+	Option mesh:dy = ly/ny (data/BOUT.inp)
+	Option mesh:ly = 5500.0 (data/BOUT.inp)
+	Option mesh:ny = 16 (data/BOUT.inp)
+	Option zmin = 0 (data/BOUT.inp)
+	Option zmax = 15.9155 (data/BOUT.inp)
+Variable 'dz' not in mesh options. Setting to 0.78125
+Variable 'g11' not in mesh options. Setting to 1.000000e+00
+Variable 'g22' not in mesh options. Setting to 1.000000e+00
+Variable 'g33' not in mesh options. Setting to 1.000000e+00
+Variable 'g12' not in mesh options. Setting to 0.000000e+00
+Variable 'g13' not in mesh options. Setting to 0.000000e+00
+Variable 'g23' not in mesh options. Setting to 0.000000e+00
+	Local maximum error in diagonal inversion is 0.000000e+00
+	Local maximum error in off-diagonal inversion is 0.000000e+00
+Variable 'J' not in mesh options. Setting to 0.000000e+00
+	WARNING: Jacobian 'J' not found. Calculating from metric tensor
+Variable 'Bxy' not in mesh options. Setting to 0.000000e+00
+	WARNING: Magnitude of B field 'Bxy' not found. Calculating from metric tensor
+Calculating differential geometry terms
+	Communicating connection terms
+	Option non_uniform = 1 (default)
+Variable 'd2x' not in mesh options. Setting to 0.000000e+00
+	WARNING: differencing quantity 'd2x' not found. Calculating from dx
+Variable 'd2y' not in mesh options. Setting to 0.000000e+00
+	WARNING: differencing quantity 'd2y' not found. Calculating from dy
+Variable 'ShiftTorsion' not in mesh options. Setting to 0.000000e+00
+	WARNING: No Torsion specified for zShift. Derivatives may not be correct
+	Option mesh:paralleltransform = identity (default)
+	done
+	Option append = 0 (default)
+	Option dump_format = nc (default)
+Setting up output (dump) file
+	Option output:parallel = 0 (default)
+	Option output:flush = 1 (default)
+	Option output:guards = 1 (default)
+	Option output:floats = 0 (default)
+	Option output:openclose = 1 (default)
+	Option output:enabled = 1 (default)
+	Option output:init_missing = 0 (default)
+	Option output:shiftOutput = 0 (default)
+	Option output:shiftInput = 0 (default)
+	Option output:flushFrequency = 1 (default)
+	Using NetCDF4 format for file 'data/BOUT.dmp.nc'
+	Option restart:parallel = 0 (default)
+	Option restart:flush = 1 (default)
+	Option restart:guards = 1 (default)
+	Option restart:floats = 0 (default)
+	Option restart:openclose = 1 (default)
+	Option restart:enabled = 1 (default)
+	Option restart:init_missing = true (data/BOUT.inp)
+	Option restart:shiftOutput = 0 (default)
+	Option restart:shiftInput = 0 (default)
+	Option restart:flushFrequency = 1 (default)
+	Option fast_output:type = none (default)
+	Option solver:type = rk4 (data/BOUT.inp)
+	Option solver:monitor_timestep = 0 (default)
+	Option solver:is_nonsplit_model_diffusive = 1 (default)
+	Option solver:mms = 0 (default)
+	Option solver:mms_initialise = 0 (default)
+	Option restart = true (data/BOUT.inp)
+	Option filaments:mu_n0 = -1 (default)
+	Option filaments:mu_vort0 = -1 (default)
+	Option filaments:mu = -1 (default)
+	Option filaments:nu_parallel0 = -1 (default)
+	Option filaments:g0 = -1 (default)
+	Option filaments:kappa0 = -1 (default)
+	Option filaments:kappa0_perp = -1 (default)
+	Option filaments:diff_perp_U = -1 (default)
+	Option filaments:diff_perp_V = -1 (default)
+	Option filaments:beta0 = -1 (default)
+	Option filaments:phi_wall = 0 (default)
+	Option filaments:old_phi_wall_value = 0 (default)
+	Option filaments:isothermal = false (data/BOUT.inp)
+	Option filaments:boussinesq = 1 (data/BOUT.inp)
+	Option filaments:split_n0 = 0 (default)
+	Option filaments:electromagnetic = 0 (default)
+	Option filaments:uniform_diss_paras = false (data/BOUT.inp)
+	Option filaments:curv_n_exb = true (data/BOUT.inp)
+	Option filaments:curv_n_dia = true (data/BOUT.inp)
+	Option filaments:curv_vort_local = false (data/BOUT.inp)
+	Option filaments:S_in_peq = 1 (default)
+	Option filaments:curv_t_dia = true (data/BOUT.inp)
+	Option filaments:curv_t_exb = true (data/BOUT.inp)
+	Option filaments:curv_t_gyro = true (data/BOUT.inp)
+	Option filaments:run_1d = 0 (default)
+	Option filaments:hydrodynamic = 0 (default)
+	Option filaments:symmetry_plane = true (data/BOUT.inp)
+	Option filaments:normalise_lengths = false (data/BOUT.inp)
+	Option filaments:add_blob = true (data/BOUT.inp)
+	Option filaments:two_blobs = 0 (default)
+	Option filaments:initial_noise = 0 (default)
+	Option filaments:initial_perturbation = 0 (default)
+	Option filaments:verbose = false (data/BOUT.inp)
+	Option filaments:save_aligned_fields = 0 (default)
+	Option filaments:b_0 = 0.5 (data/BOUT.inp)
+	Option filaments:t_e0 = 40 (data/BOUT.inp)
+	Option filaments:t_i0 = 40 (data/BOUT.inp)
+	Option filaments:m_i = 2 (data/BOUT.inp)
+	Option filaments:q = 7 (data/BOUT.inp)
+	Option filaments:r_c = 1.5 (data/BOUT.inp)
+	Option filaments:n_0 = 8e+12 (data/BOUT.inp)
+	Option filaments:z = 1 (data/BOUT.inp)
+	Option filaments:loglambda = -1 (data/BOUT.inp)
+	Option filaments:equilibrium_source = 1d_profiles (default)
+	Option filaments:equilibrium_file_path =  (default)
+	Option filaments:equilibrium_directory = equilibrium (default)
+	Option datadir = data ()
+	Option filaments:equilibrium_data_file =  (default)
+	Option filaments:average_radial_boundaries_core_SOL = 0 (default)
+	Option filaments:realistic_geometry = none (default)
+	Option filaments:normalise_all = 0 (default)
+	Option filaments:monitor_minmaxmean = 0 (default)
+	Option filaments:sources_realistic_geometry = 0 (default)
+	Option filaments:sources_realisticgeometry_background = 0 (default)
+	Option filaments:increased_dissipation_xbndries = 0 (default)
+	Option filaments:increased_resistivity_core = 0 (default)
+	Option filaments:normalise_sources = 1 (default)
+	Option logn:bndry_xin = neumann_o2 (default)
+	Option logn:bndry_xout = neumann_o2 (default)
+	Option logn:bndry_ydown = none (default)
+	Option logn:bndry_yup = none (default)
+	Option logn_aligned:bndry_xin = none (default)
+	Option logn_aligned:bndry_xout = none (default)
+	Option logn_aligned:bndry_ydown = neumann_o2 (default)
+	Option logn_aligned:bndry_yup = free_o3 (default)
+	Option vort:bndry_xin = neumann_o2 (default)
+	Option vort:bndry_xout = neumann_o2 (default)
+	Option vort:bndry_ydown = none (default)
+	Option vort:bndry_yup = none (default)
+	Option vort_aligned:bndry_xin = none (default)
+	Option vort_aligned:bndry_xout = none (default)
+	Option vort_aligned:bndry_ydown = neumann_o2 (default)
+	Option vort_aligned:bndry_yup = free_o3 (default)
+	Option phi:bndry_xin = none (default)
+	Option phi:bndry_xout = none (default)
+	Option phi:bndry_ydown = none (default)
+	Option phi:bndry_yup = none (default)
+	Option phi_aligned:bndry_xin = none (default)
+	Option phi_aligned:bndry_xout = none (default)
+	Option phi_aligned:bndry_ydown = neumann_o2 (default)
+	Option phi_aligned:bndry_yup = free_o3 (default)
+	Option phi_stag:bndry_xin = free_o3 (default)
+	Option phi_stag:bndry_xout = free_o3 (default)
+	Option phi_stag:bndry_ydown = none (default)
+	Option phi_stag:bndry_yup = none (default)
+	Option logp:bndry_xin = neumann_o2 (default)
+	Option logp:bndry_xout = neumann_o2 (default)
+	Option logp:bndry_ydown = none (default)
+	Option logp:bndry_yup = none (default)
+	Option logT_aligned:bndry_xin = none (default)
+	Option logT_aligned:bndry_xout = none (default)
+	Option logT_aligned:bndry_ydown = neumann_o2 (default)
+	Option logT_aligned:bndry_yup = free_o3 (default)
+	Option u:bndry_xin = neumann_o2 (default)
+	Option u:bndry_xout = neumann_o2 (default)
+	Option u:bndry_ydown = none (default)
+	Option u:bndry_yup = none (default)
+	Option U_aligned:bndry_xin = none (default)
+	Option U_aligned:bndry_xout = none (default)
+	Option U_aligned:bndry_ydown = dirichlet_o2 (default)
+	Option U_aligned:bndry_yup = none (default)
+	Option v:bndry_xin = neumann_o2 (default)
+	Option v:bndry_xout = neumann_o2 (default)
+	Option v:bndry_ydown = none (default)
+	Option v:bndry_yup = none (default)
+	Option V_aligned:bndry_xin = none (default)
+	Option V_aligned:bndry_xout = none (default)
+	Option V_aligned:bndry_ydown = dirichlet_o2 (default)
+	Option V_aligned:bndry_yup = none (default)
+	Option chiU:bndry_xin = none (default)
+	Option chiU:bndry_xout = none (default)
+	Option chiU:bndry_ydown = none (default)
+	Option chiU:bndry_yup = none (default)
+	Option chiV:bndry_xin = none (default)
+	Option chiV:bndry_xout = none (default)
+	Option chiV:bndry_ydown = none (default)
+	Option chiV:bndry_yup = none (default)
+	Option qpar_aligned:bndry_xin = none (default)
+	Option qpar_aligned:bndry_xout = none (default)
+	Option qpar_aligned:bndry_ydown = dirichlet_o2 (default)
+	Option qpar_aligned:bndry_yup = none (default)
+	Option mesh:paralleltransform = identity (default)
+	Option mesh:ixseps1 = -1 (data/BOUT.inp)
+	Option mesh:ixseps2 = 0 (data/BOUT.inp)
+Variable 'jyseps1_1' not in mesh options. Setting to 0
+Variable 'jyseps2_1' not in mesh options. Setting to 0
+Variable 'jyseps1_2' not in mesh options. Setting to 0
+Variable 'jyseps2_2' not in mesh options. Setting to 0
+Variable 'ny_inner' not in mesh options. Setting to 0
+	Option filaments:evolving_bcs = 0 (default)
+	Option filaments:time_update_SOL = 10 (default)
+	Option filaments:time_update_PF = 10 (default)
+	Option filaments:time_update_core = 10 (default)
+	Option filaments:Lx = -1 (default)
+	Lx input not found, setting to 150
+	Option filaments:Ly = -1 (default)
+	Ly input not found, setting to 5500
+	Option filaments:Lz = -1 (default)
+	Lz input not found, setting to 100
+Variable 'Rxy' not in mesh options. Setting to 0.000000e+00
+Variable 'Zxy' not in mesh options. Setting to 0.000000e+00
+Variable 'psixy' not in mesh options. Setting to 0.000000e+00
+Calculating differential geometry terms
+	Communicating connection terms
+	Option non_uniform = true (default)
+Variable 'd2x' not in mesh options. Setting to 0.000000e+00
+	WARNING: differencing quantity 'd2x' not found. Calculating from dx
+Variable 'd2y' not in mesh options. Setting to 0.000000e+00
+	WARNING: differencing quantity 'd2y' not found. Calculating from dy
+	Option mesh:paralleltransform = identity (default)
+	Option filaments:bracket = 2 (data/BOUT.inp)
+	Brackets: Arakawa scheme
+	Option s:function = 0.7*10*exp(10.0*y/(2*pi))/(exp(10.0)-1.0) (data/BOUT.inp)
+	Option s_e:function = 16.0*exp(-5.0*y/(2*pi)) (data/BOUT.inp)
+Setting boundary for variable logn
+	core region: 	Option logn:bndry_xin = neumann_o2 ()
+
+	lower_target region: 	Option logn:bndry_ydown = none ()
+
+	Option input:transform_from_field_aligned = true (default)
+	Option all:function = 0.0 (default)
+	Option all:scale = 1 (default)
+	Option all:evolve_bndry = 0 (default)
+	Option logn:evolve_bndry = 0 (default)
+Setting boundary for variable vort
+	core region: 	Option vort:bndry_xin = neumann_o2 ()
+
+	lower_target region: 	Option vort:bndry_ydown = none ()
+
+	Option input:transform_from_field_aligned = true (default)
+	Option vort:function = 0.0 (data/BOUT.inp)
+	Option all:scale = 1 (default)
+	Option all:evolve_bndry = false (default)
+	Option vort:evolve_bndry = 0 (default)
+Setting boundary for variable logp
+	core region: 	Option logp:bndry_xin = neumann_o2 ()
+
+	lower_target region: 	Option logp:bndry_ydown = none ()
+
+	Option input:transform_from_field_aligned = true (default)
+	Option all:function = 0.0 (default)
+	Option all:scale = 1 (default)
+	Option all:evolve_bndry = false (default)
+	Option logp:evolve_bndry = 0 (default)
+Setting boundary for variable U
+	core region: 	Option u:bndry_xin = neumann_o2 ()
+
+	lower_target region: 	Option u:bndry_ydown = none ()
+
+	Variable U shifted to CELL_YLOW
+	Option input:transform_from_field_aligned = true (default)
+	Option u:function = exp(-10)*exp( 10*(y/(2.0*pi))) (data/BOUT.inp)
+	Option all:scale = 1 (default)
+	Option all:evolve_bndry = false (default)
+	Option u:evolve_bndry = 0 (default)
+Setting boundary for variable V
+	core region: 	Option v:bndry_xin = neumann_o2 ()
+
+	lower_target region: 	Option v:bndry_ydown = none ()
+
+	Variable V shifted to CELL_YLOW
+	Option input:transform_from_field_aligned = true (default)
+	Option v:function = exp(-10)*exp( 10*(y/(2.0*pi))) (data/BOUT.inp)
+	Option all:scale = 1 (default)
+	Option all:evolve_bndry = false (default)
+	Option v:evolve_bndry = 0 (default)
+	Option laplace:inner_boundary_flags = 16 (default)
+	Option laplace:outer_boundary_flags = 16 (default)
+	Option laplace:type = cyclic (default)
+Initialising Laplacian inversion routines
+	Option laplace:async = 1 (default)
+	Option laplace:filter = 0 (default)
+	Option laplace:maxmode = 64 (default)
+	Option laplace:low_mem = 0 (default)
+	Option laplace:nonuniform = 1 (default)
+	Option laplace:all_terms = 1 (default)
+	Option laplace:global_flags = 0 (default)
+	Option laplace:inner_boundary_flags = 16 ()
+	Option laplace:outer_boundary_flags = 16 ()
+	Option laplace:include_yguards = 0 (default)
+	Option laplace:extra_yguards_lower = 0 (default)
+	Option laplace:extra_yguards_upper = 0 (default)
+	Option laplace:dst = 0 (default)
+Setting boundary for variable phi
+	core region: 	Option phi:bndry_xin = none ()
+
+	lower_target region: 	Option phi:bndry_ydown = none ()
+
+Setting boundary for variable phi_aligned
+	core region: 	Option phi_aligned:bndry_xin = none ()
+
+	lower_target region: 	Option phi_aligned:bndry_ydown = neumann_o2 ()
+
+Setting boundary for variable phi_stag
+	core region: 	Option phi_stag:bndry_xin = free_o3 ()
+
+	lower_target region: 	Option phi_stag:bndry_ydown = none ()
+
+Setting boundary for variable U
+	core region: 	Option u:bndry_xin = neumann_o2 ()
+
+	lower_target region: 	Option u:bndry_ydown = none ()
+
+Setting boundary for variable U_aligned
+	core region: 	Option U_aligned:bndry_xin = none ()
+
+	lower_target region: 	Option U_aligned:bndry_ydown = dirichlet_o2 ()
+
+Setting boundary for variable U
+	core region: 	Option u:bndry_xin = neumann_o2 ()
+
+	lower_target region: 	Option u:bndry_ydown = none ()
+
+Setting boundary for variable V
+	core region: 	Option v:bndry_xin = neumann_o2 ()
+
+	lower_target region: 	Option v:bndry_ydown = none ()
+
+Setting boundary for variable V_aligned
+	core region: 	Option V_aligned:bndry_xin = none ()
+
+	lower_target region: 	Option V_aligned:bndry_ydown = dirichlet_o2 ()
+
+Setting boundary for variable V
+	core region: 	Option v:bndry_xin = neumann_o2 ()
+
+	lower_target region: 	Option v:bndry_ydown = none ()
+
+	Option v:bndry_xin = neumann_o2 ()
+	Option u:bndry_xin = neumann_o2 ()
+	Option v:bndry_xout = neumann_o2 ()
+	Option u:bndry_xout = neumann_o2 ()
+Setting boundary for variable V
+	core region: 	Option v:bndry_xin = neumann_o2 ()
+
+	lower_target region: 	Option v:bndry_ydown = none ()
+
+Setting boundary for variable logn_aligned
+	core region: 	Option logn_aligned:bndry_xin = none ()
+
+	lower_target region: 	Option logn_aligned:bndry_ydown = neumann_o2 ()
+
+Setting boundary for variable logn
+	core region: 	Option logn:bndry_xin = neumann_o2 ()
+
+	lower_target region: 	Option logn:bndry_ydown = none ()
+
+Setting boundary for variable vort_aligned
+	core region: 	Option vort_aligned:bndry_xin = none ()
+
+	lower_target region: 	Option vort_aligned:bndry_ydown = neumann_o2 ()
+
+Setting boundary for variable logp
+	core region: 	Option logp:bndry_xin = neumann_o2 ()
+
+	lower_target region: 	Option logp:bndry_ydown = none ()
+
+Setting boundary for variable logT_aligned
+	core region: 	Option logT_aligned:bndry_xin = none ()
+
+	lower_target region: 	Option logT_aligned:bndry_ydown = neumann_o2 ()
+
+Setting boundary for variable logp
+	core region: 	Option logp:bndry_xin = neumann_o2 ()
+
+	lower_target region: 	Option logp:bndry_ydown = none ()
+
+Setting boundary for variable qpar_aligned
+	core region: 	Option qpar_aligned:bndry_xin = none ()
+
+	lower_target region: 	Option qpar_aligned:bndry_ydown = dirichlet_o2 ()
+
+
+*******************************************************************
+Git Version of STORM: v1.2-148-g3e72c41014640af503cfb212404720b440e5405b-dirty
+*******************************************************************
+Calculated Parameters
+*******************************************************************
+	T_e0         = 6.408706e-18 J
+	m_i          = 3.321078e-27 kg
+	c_s          = 4.392843e+04 m/s
+	rho_s        = 1.821144e-03 m
+	Omega_i      = 2.412133e+07 s^-1
+	Omega_e      = 8.794100e+10 s-1
+	nu_ei        = 1.220809e+06 Hz
+	nu_ii        = 1.429676e+04 Hz
+	V_the        = 2.652410e+06 m/s
+	V_thi        = 4.392843e+04 m/s
+	rho_e        = 3.016125e-05 m
+	rho_i        = 1.821144e-03 m
+	loglambda    = 1.328326e+01 
+	beta0        = 5.154187e-04 
+Dimensionless Parameters:
+	mu_n0        = 1.796348e-03 
+	mu_vort0     = 3.529539e-02 
+	nu_parallel0 = 2.581169e-02 
+	g0           = 2.428192e-03 
+	mu           = 3.645777e+03 
+	kappa_par    = 2.276308e+05 
+	kappa_perp   = 5.136444e-03 
+	diff_perp_U  = -1.000000e+00 
+	diff_perp_V  = -1.000000e+00 
+Dimensionless Lengths:
+	dx           = 7.812500e-01 
+	dy           = 3.437500e+02 
+	dz           = 7.812503e-01 
+	zlength      = 1.000000e+02 
+	Lx           = 1.500000e+02 
+	Ly           = 5.500000e+03 
+	Lz           = 1.000000e+02 
+Dimensional Lengths:
+	Lx           = 2.731716e-01 m
+	Ly           = 1.001629e+01 m
+	Lz           = 1.821145e-01 m
+*******************************************************************
+	Option neutral:type = none (default)
+	Option datadir = data ()
+	Option dump_format = nc (default)
+	Option restart_format = nc (default)
+	Using NetCDF4 format for file 'data/BOUT.restart.nc'
+Loading restart file: data/BOUT.restart.nc
+	Using NetCDF4 format for file 'data/BOUT.restart.nc'
+	WARNING: Could not read string run_id. Creating empty strig
+	WARNING: Could not read string run_restart_from. Creating empty strig
+	Using NetCDF4 format for file 'data/BOUT.restart.nc'
+	Option solver:save_repeat_run_id = 0 (default)
+	Option nout = 1 (data/BOUT.inp)
+	Option timestep = 25 (data/BOUT.inp)
+	Option solver:NOUT = 1 (default)
+	Option solver:output_step = 25 (default)
+Solver running for 1 outputs with output timestep of 2.500000e+01
+Initialising solver
+
+	Runge-Kutta 4th-order solver
+	3d fields = 5, 2d fields = 0 neq=1966080, local_N=61440
+	Option solver:atol = 1e-05 (default)
+	Option solver:rtol = 0.001 (default)
+	Option solver:max_timestep = 25 (default)
+	Option solver:timestep = 0.01 (data/BOUT.inp)
+	Option solver:mxstep = 500 (default)
+	Option solver:adaptive = 0 (default)
+Running simulation
+
+Run ID: 8bb95d9c-2f02-4b93-abfc-43ad40778d38
+
+Run started at  : Mon 22 Feb 2021 16:35:58 CET
+	Option restart = true (data/BOUT.inp)
+	Option append = false (default)
+	Option dump_on_restart = false (data/BOUT.inp)
+	Option fft:fft_measure = 0 (default)
+	Option fft:fft_measurement_flag = estimate (default)
+	Option laplace:type = cyclic (default)
+Initialising Laplacian inversion routines
+	Option laplace:async = true (default)
+	Option laplace:filter = 0 (default)
+	Option laplace:maxmode = 64 (default)
+	Option laplace:low_mem = false (default)
+	Option laplace:nonuniform = true (default)
+	Option laplace:all_terms = true (default)
+	Option laplace:global_flags = 0 (default)
+	Option laplace:inner_boundary_flags = 16 ()
+	Option laplace:outer_boundary_flags = 16 ()
+	Option laplace:include_yguards = false (default)
+	Option laplace:extra_yguards_lower = 0 (default)
+	Option laplace:extra_yguards_upper = 0 (default)
+	Option laplace:dst = false (default)
+	Option wall_limit = -1 (default)
+	Option stopCheck = 0 (default)
+Sim Time  |  RHS evals  | Wall Time |  Calc    Inv   Comm    I/O   SOLVER
+
+5.250e+02      10005       2.21e+02    79.4    7.6    7.4    0.0    5.5
+|  Step 1 of 1. Elapsed 0:03:41.3 ETA 0:00:00.0
+Run finished at  : Mon 22 Feb 2021 16:39:39 CET
+Run time : 3 m 41 s
+	Option datadir = data ()
+	Option settingsfile = BOUT.settings ()
+Writing options to file data/BOUT.settings
+	Option time_report:show = 0 (default)
