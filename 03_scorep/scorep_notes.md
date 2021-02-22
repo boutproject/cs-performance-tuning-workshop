@@ -14,9 +14,14 @@ profiling information, and to prevent excessive overhead from instrumentation ma
 profiling uninformative.
 
 Running with a short enough `timestep` and `nout` with full instrumentation (a few hundred
-rhs calls should be plenty) should let Score-P produce some output. This can then be used
-to find out which calls need to be filtered. If example output is in the `scorep-storm`
-directory then calling
+rhs calls should be plenty) should let Score-P produce some output.
+
+> Without filtering the runs may be very slow (observed with icc/intelmpi on DINE).
+> However on Marconi with gcc/openmpi the unfiltered run took only about 9 mins, compared
+> to 1 min 50 s for a plain, non-Score-P run.
+
+The output with full instrumentation can then be used to find out which calls need to be
+filtered. If example output is in the `scorep-storm` directory then calling
 
 ```
 scorep-score -r scorep-storm/profile.cubex
@@ -27,7 +32,7 @@ tracing each instrumented function call. Calls with less than ~1 microsecond of
 `time/visit` should probably be filtered as the overhead is greater than the time spent in
 them.
 
-> With gcc/OpenMPI on Marconi, the instrumented calls introducing the most overhead were
+> With gcc/openmpi on Marconi, the instrumented calls introducing the most overhead were
 > operator()(stencil f), which are used inside tight loops by the derivative functions.
 > Currently not clear if instrumentation prevents these being inlined (any way to test
 > this?).
