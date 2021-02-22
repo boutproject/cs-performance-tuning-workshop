@@ -64,4 +64,6 @@ cost of initialisation routines), so need to remember to scale up if looking at 
 to prevent Score-P from flushing buffers to disk, which may produce inconsistent profiles.
 
 A filter file that has allowed Score-P to produce reasonable profiles for STORM is
-included in this directory: `scorep.filt`.
+included in this directory: `scorep.filt`. Using this file on Marconi, filtered-Score-P
+/ non-Score-P runs took 3 m 20 s / 3 m 12 s on 48 cores, and 1 m 58 s / 1 m 51 s on 96
+cores.
