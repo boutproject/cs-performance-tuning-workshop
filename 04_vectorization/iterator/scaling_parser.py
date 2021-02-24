@@ -6,7 +6,7 @@ def read_file(filename):
                         skipinitialspace=True)
 
     # Skip header
-    for _, _ in zip(range(4), reader):
+    for _, _ in zip(range(9), reader):
         continue
 
     case_lines = {}
@@ -24,4 +24,23 @@ def read_file(filename):
         for title, col in zip(titles, line[:-1]):
             cases_weak[title].append(float(col))
 
-    return case_lines, cases_weak, titles
+    # Skip header
+    for _, _ in zip(range(3), reader):
+        continue
+
+    case_lines_strong = {}
+    for line in reader:
+        if line == []:
+            break
+        case_lines_strong[line[0].rstrip('.')] = line[1]
+
+    titles_strong = next(reader)
+    cases_strong = {col.strip(): [] for col in titles[:-1]}
+
+    for line in reader:
+        if line == []:
+            break
+        for title, col in zip(titles, line[:-1]):
+            cases_strong[title].append(float(col))
+
+    return case_lines, cases_weak, titles, case_lines_strong, cases_strong, titles_strong
