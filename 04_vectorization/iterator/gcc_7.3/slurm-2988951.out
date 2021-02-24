@@ -1,0 +1,77 @@
+====
+Starting job 2988951 at Wed 24 Feb 15:42:53 GMT 2021 for user dc-park1.
+Running on nodes: b108
+====
+SLURM_CHECKPOINT_IMAGE_DIR=/var/slurm/checkpoint
+SLURM_CLUSTER_NAME=cosma7
+SLURM_CPUS_ON_NODE=32
+SLURM_GTIDS=0
+SLURM_JOB_ACCOUNT=do008
+SLURM_JOB_CPUS_PER_NODE=32
+SLURM_JOB_GID=20242
+SLURM_JOB_ID=2988951
+SLURM_JOBID=2988951
+SLURM_JOB_NAME=gcc_7.3.sbatch
+SLURM_JOB_NODELIST=b108
+SLURM_JOB_NUM_NODES=1
+SLURM_JOB_PARTITION=bluefield1
+SLURM_JOB_QOS=normal
+SLURM_JOB_UID=21557
+SLURM_JOB_USER=dc-park1
+SLURM_LOCALID=0
+SLURM_MEM_PER_NODE=500000
+SLURM_NNODES=1
+SLURM_NODE_ALIASES=(null)
+SLURM_NODEID=0
+SLURM_NODELIST=b108
+SLURM_NPROCS=32
+SLURM_NTASKS=32
+SLURM_PRIO_PROCESS=0
+SLURM_PROCID=0
+SLURM_SUBMIT_DIR=/cosma/home/do008/dc-park1/BOUT-dev/examples/performance/iterator
+SLURM_SUBMIT_HOST=login5a.pri.cosma7.alces.network
+SLURM_TASK_PID=9203
+SLURM_TASKS_PER_NODE=32
+SLURM_TOPOLOGY_ADDR=b108
+SLURM_TOPOLOGY_ADDR_PATTERN=node
+SLURM_WORKING_CLUSTER=cosma7:infra02:6817:8192
+mpirun --mca btl_tcp_if_include p1p2 -x UCX_NET_DEVICES=mlx5_1:1
+
+------------------------------------------------
+Case legend
+------------------------------------------------
+       Case 0.	C loop
+       Case 1.	Nested loop
+       Case 2.	C loop repeat
+       Case 3.	Region (serial)
+
+      Nprocs	    Nthreads	   Num_loops	  Local grid	 Nx (global)	 Ny (global)	 Nz (global)	       Case 0	       Case 1	       Case 2	       Case 3	
+           1	           0	       10000	          96	           4	           6	           4	 3.07458e-08	 1.35431e-07	 3.04492e-08	 8.92426e-08	
+           1	           0	       10000	         640	           8	          10	           8	 2.12182e-07	 6.32036e-07	 2.07163e-07	 2.56027e-07	
+           1	           0	       10000	        4608	          16	          18	          16	   1.572e-06	 2.64351e-06	 1.57709e-06	 1.72113e-06	
+           1	           0	       10000	       34816	          32	          34	          32	  1.1782e-05	 1.64056e-05	 1.16757e-05	  1.2791e-05	
+           1	           0	       10000	      270336	          64	          66	          64	 9.42051e-05	  0.00011685	 9.41641e-05	 0.000116213	
+           1	           0	       10000	     2129920	         128	         130	         128	  0.00190747	  0.00192493	  0.00190324	  0.00194661	
+
+------------------------------------------------
+Case legend
+------------------------------------------------
+       Case 0.	C loop
+       Case 1.	Nested loop
+       Case 2.	C loop repeat
+       Case 3.	Region (serial)
+
+      Nprocs	    Nthreads	   Num_loops	  Local grid	 Nx (global)	 Ny (global)	 Nz (global)	       Case 0	       Case 1	       Case 2	       Case 3	
+           1	           0	       10000	     1020000	         100	         102	         100	 0.000878419	 0.000878338	 0.000880523	 0.000919979	
+           2	           0	       10000	      520000	         100	         102	         100	 0.000676019	 0.000685604	 0.000672947	 0.000736515	
+           4	           0	       10000	      265200	         100	         102	         100	 9.48126e-05	 9.88269e-05	 9.41895e-05	 0.000103417	
+           8	           0	       10000	      137700	         100	         102	         100	 4.83769e-05	  4.8094e-05	 4.60593e-05	 4.90945e-05	
+-------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+-------------------------------------------------------
+2 total processes killed (some possibly by mpirun during cleanup)
+-------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+-------------------------------------------------------
