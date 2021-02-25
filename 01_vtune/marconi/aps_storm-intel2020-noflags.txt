@@ -1,0 +1,108 @@
+| Summary information
+|--------------------------------------------------------------------
+  Application                : filaments
+  Report creation date       : 2021-02-25 16:27:45
+  Number of ranks            : 48
+  Ranks per node             : 48
+  HW Platform                : Intel(R) Xeon(R) Processor code named Skylake
+  Frequency                  : 2.10 GHz
+  Logical core count per node: 48
+  Collector type             : Event-based counting driver
+  Used statistics            : aps_storm-intel2020-noflags
+|
+| Your application is memory bound.
+| Use memory access analysis tools like Intel(R) VTune(TM) Profiler for a  detailed metric breakdown by memory hierarchy, memory bandwidth, and correlation by memory objects.
+|
+  Elapsed time:                              195.00 sec
+  SP GFLOPS:                                  0.00
+  DP GFLOPS:                                 26.49
+  Average CPU Frequency:                      2.10 GHz
+  IPC Rate:                                   1.61
+  MPI Time:                   28.03 sec            14.38%
+| Your application is MPI bound. This may be caused by high busy wait time
+| inside the library (imbalance), non-optimal communication schema or MPI
+| library settings. Explore the MPI Imbalance metric if it is available or use
+| MPI profiling tools like Intel(R) Trace Analyzer and Collector to explore
+| possible performance bottlenecks.
+    MPI Imbalance:             6.25 sec             3.21%
+    Top 5 MPI functions (avg time):
+        Send                        11.65 sec  ( 5.98 %)
+        Waitany                     11.61 sec  ( 5.96 %)
+        Init                         3.94 sec  ( 2.02 %)
+        Allreduce                    0.41 sec  ( 0.21 %)
+        Irecv                        0.32 sec  ( 0.16 %)
+  Interconnect Outgoing Bandwidth
+       Peak:                    8.09  GB/sec
+       Average:                 0.01  GB/sec
+       Bound:                   0.00 %
+  Interconnect Incoming Bandwidth
+       Peak:                    0.09  GB/sec
+       Average:                 0.00  GB/sec
+       Bound:                   0.00 %
+  Interconnect Outgoing Packet Rate
+       Peak:                    0.99  Million Packets/sec
+       Average:                 0.00  Million Packets/sec
+       Bound:                   0.00 %
+  Interconnect Incoming Packet Rate
+       Peak:                    0.05  Million Packets/sec
+       Average:                 0.00  Million Packets/sec
+       Bound:                   0.00 %
+  Memory Stalls:                              35.40% of pipeline slots
+| The metric value can indicate that a significant fraction of execution
+| pipeline slots could be stalled due to demand memory load and stores. See the
+| second level metrics to define if the application is cache- or DRAM-bound and
+| the NUMA efficiency. Use Intel(R) VTune(TM) Profiler Memory Access analysis to
+| review a detailed metric breakdown by memory hierarchy, memory bandwidth
+| information, and correlation by memory objects.
+    Cache Stalls:                             15.20% of cycles
+    DRAM Stalls:                              13.90% of cycles
+    DRAM Bandwidth
+       Peak:                  179.38  GB/sec
+       Average:               137.07  GB/sec
+       Bound:                  92.60 %
+| The system spent much time heavily utilizing DRAM bandwidth. Improve data
+| accesses to reduce cacheline transfers from/to memory using these possible
+| techniques: 1) consume all bytes of each cacheline before it is evicted (for
+| example, reorder structure elements and split non-hot ones); 2) merge
+| compute-limited and bandwidth-limited loops; 3) use NUMA optimizations on a
+| multi-socket system. Note: software prefetches do not help a bandwidth-limited
+| application. Run Intel(R) VTune(TM) Profiler Memory Access Analysis to
+| identify data structures to be allocated in High Bandwidth Memory (HBM), if
+| available.
+    NUMA: % of Remote Accesses:                0.80%
+  Vectorization:                              7.00%
+| A significant fraction of floating point arithmetic instructions are scalar.
+| Use Intel Advisor to see possible reasons why the code was not vectorized.
+     Instruction Mix:
+       SP FLOPs:                              0.00% of uOps
+       DP FLOPs:                             14.60% of uOps
+          Packed:                             7.50% from DP FP
+             128-bit:                             3.70%
+             256-bit:                             3.80%
+             512-bit:                             0.00%
+          Scalar:                            92.50% from DP FP
+| A significant fraction of floating point arithmetic instructions are scalar.
+| Use Intel(R) Advisor to see possible reasons why the code was not vectorized.
+       Non-FP:                               84.40% of uOps
+     FP Arith/Mem Rd Instr. Ratio:            0.58
+     FP Arith/Mem Wr Instr. Ratio:            1.26
+ Disk I/O Bound:             0.01 sec ( 0.01 %)
+       Data read:            524.9 MB
+       Data written:         239.4 MB
+ Memory Footprint:
+ Resident:
+       Per node:
+           Peak resident set size    :         7051.65 MB (node r129c01s04)
+           Average resident set size :         7051.65 MB
+       Per rank:
+           Peak resident set size    :          149.92 MB (rank 24)
+           Average resident set size :          146.91 MB
+ Virtual:
+       Per node:
+           Peak memory consumption    :       184283.79 MB (node r129c01s04)
+           Average memory consumption :       184283.79 MB
+       Per rank:
+           Peak memory consumption    :         3839.75 MB (rank 0)
+           Average memory consumption :         3839.25 MB
+
+Graphical representation of this data is available in the HTML report: /marconi_work/FUA34_SOLBOUT4/jomotani/intel-versions/storm-master/tests3d/test-nonisothermal/aps_report_20210225_184137.html

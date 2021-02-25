@@ -1,0 +1,71 @@
+Intel(R) VTune(TM) Amplifier summary
+Number of nodes;1
+
+/marconi/prod/opt/compilers/intel/pe-xe-2020/binary/vtune_profiler_2020.3.0.612611/bin64/vtune -R summary -r /marconi_work/FUA34_SOLBOUT4/jomotani/intel-versions/storm-master/tests3d/test-nonisothermal/aps_storm/hwmetrics/results.r129c01s03,s.* -q -format csv -csv-delimiter semicolon
+Hierarchy Level;Metric Name;Metric Value
+0;Elapsed Time;196.894606
+1;SP GFLOPS;0.000004
+1;DP GFLOPS;26.843572
+1;x87 GFLOPS;0.971464
+1;IPC;1.551399
+1;Average CPU Frequency;2072565151.941094
+1;Total Thread Count;
+1;CPU Time;8825.134845
+0;Effective CPU Utilization;93.4
+1;Average Effective CPU Utilization;44.822 out of 48
+0;Memory Bound;37.2
+1;Cache Bound;17.7
+1;DRAM Bound;15.9
+2;DRAM Bandwidth Bound;94.6
+1;NUMA: % of Remote Accesses;0.7
+1;Bandwidth Utilization;
+1;Bandwidth Domain;Platform Maximum;Observed Maximum;Average;% of Elapsed Time with High BW Utilization(%)
+1;DRAM, GB/sec;140.000000;177.165000;137.104069;94.0
+1;DRAM Single-Package, GB/sec;70.000000;177.165000;137.104069;94.6
+1;UPI Outgoing, GB/sec;[Unknown];27.846100;3.953319;100.0
+0;Vectorization;7.9
+1;Instruction Mix;
+2;SP FLOPs;0.0
+3;Packed;0.0
+4;128-bit;0.0
+4;256-bit;0.0
+4;512-bit;0.0
+3;Scalar;100.0
+2;DP FLOPs;15.5
+3;Packed;8.2
+4;128-bit;4.6
+4;256-bit;3.5
+4;512-bit;0.1
+3;Scalar;91.8
+2;x87 FLOPs;0.6
+2;Non-FP;83.9
+1;FP Arith/Mem Rd Instr. Ratio;0.577277
+1;FP Arith/Mem Wr Instr. Ratio;1.289671
+0;Intel Omni-Path Fabric Usage;
+1;Interconnect Bandwidth;
+2;Outgoing Bandwidth Bound;0.0
+2;Incoming Bandwidth Bound;0.0
+2;Bandwidth Utilization;
+2;Bandwidth Domain;Platform Maximum;Observed Maximum;Average;% of Elapsed Time with High BW Utilization(%)
+2;Interconnect Incoming Bandwidth, GB/sec;24.000000;0.207035;0.0;0.0
+2;Interconnect Outgoing Bandwidth, GB/sec;24.000000;5.999480;0.005139;0.0
+1;Interconnect Packet Rate;
+2;Outgoing Packet Rate Bound;0.0
+2;Incoming Packet Rate Bound;0.0
+2;Packet Rate;
+2;Domain;Platform Maximum;Observed Maximum;Average Packet Rate;% of Elapsed Time with High Packet Rate(%)
+2;Interconnect Incoming Packet Rate, Million Packets/sec;300.000000;0.025391;0.0;0.0
+2;Interconnect Outgoing Packet Rate, Million Packets/sec;300.000000;0.731829;0.000428;0.0
+0;Collection and Platform Info;
+1;Application Command Line;../../storm3d/filaments 
+1;Operating System;"3.10.0-514.26.2.el7.x86_64 NAME="CentOS Linux" VERSION="7 (Core)" ID="rhel" ID_LIKE="rhel fedora" VERSION_ID="7" PRETTY_NAME="CentOS Linux 7 (Core)" ANSI_COLOR="0;31" CPE_NAME="cpe:/o:centos:centos:7" HOME_URL="https://www.centos.org/" BUG_REPORT_URL="https://bugs.centos.org/"  CENTOS_MANTISBT_PROJECT="CentOS-7" CENTOS_MANTISBT_PROJECT_VERSION="7" REDHAT_SUPPORT_PRODUCT="centos" REDHAT_SUPPORT_PRODUCT_VERSION="7" "
+1;MPI Process Rank;41
+1;Computer Name;r129c01s03
+1;Result Size;4010966
+1;Collection start time;16:36:41 25/02/2021 UTC
+1;Collection stop time;16:39:58 25/02/2021 UTC
+1;Collector Type;Event-based counting driver
+1;CPU;
+2;Name;Intel(R) Xeon(R) Processor code named Skylake
+2;Frequency;2100000000
+2;Logical CPU Count;48
