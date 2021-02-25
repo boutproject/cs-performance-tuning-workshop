@@ -30,3 +30,5 @@ Some example reports are included in this directory.
 * `aps_storm-intel2020-extraopt` used intel-2020/intelmpi-2020 and `-Ofast -funroll-loops -xCORE-AVX512 -mtune=skylake -no-inline-max-size -no-inline-max-total-size`
 
 The extra optimization flags improved vectorisation minimally: 7.00% for `aps_storm-intel2020-noflags`; 7.90% for `aps_storm-intel2020-extraopt-noflags`; and 8.90% for `aps_storm-intel2020-extraopt`.
+
+I (JTO) didn't test if `#SBATCH -C vtune` would give vectorisation output with the intel/2018 compilers - I'd already switched to intel/2020 when the Helpdesk helped me with that flag. The intel/2020 compilers are available if you run `module load profile/candidate` (they're still being evaluated by the Marconi support team as of 25/2/2021).
