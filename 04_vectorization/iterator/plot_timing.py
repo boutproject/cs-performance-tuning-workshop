@@ -62,6 +62,9 @@ def main():
     gcc10.append('gcc_10.2/slurm-2990378.out')
     gcc10.calculate_statistics()
 
+    intel18 = Run.Run('intel_18/slurm-2991164.out')
+    intel18.calculate_statistics()
+
     parser = argparse.ArgumentParser(
         description="Plot the growth rate against the timestep."
     )
@@ -108,7 +111,10 @@ def main():
     ax = plot_runset(gcc7.boutfor_weak,'gcc 7.3 BOUT for','g')
 
     ax = plot_runset(gcc10.cloop_weak,'gcc 10.2 C loop','r')
-    ax = plot_runset(gcc10.boutfor_weak,'gcc 10.2 BOUT for','m')
+    ax = plot_runset(gcc10.boutfor_weak,'gcc 10.2 BOUT for','Orange')
+
+    ax = plot_runset(intel18.cloop_weak,'intel 18 C loop','k')
+    ax = plot_runset(intel18.boutfor_weak,'intel 18 BOUT for','m')
 
 ###    if leg:
 ###        plt.legend(loc=0, fontsize=args.legend_fontsize)
