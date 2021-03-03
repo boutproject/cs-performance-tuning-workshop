@@ -23,7 +23,7 @@ class Plot_Defaults:
         self.xlabel = ""
         self.ylabel = ""
 
-def plot_runset(df,labelstr,colorstr):
+def plot_runset(df,labelstr,colorstr,markerstr):
 
     ncol = len(df.columns)-11
 
@@ -43,7 +43,7 @@ def plot_runset(df,labelstr,colorstr):
                 x="Local grid",
                 y="mean",
                 ax=plt.gca(),
-                marker='.',
+                marker=markerstr,
                 lw=1,
                 color=colorstr,
                 label=labelstr,
@@ -53,17 +53,22 @@ def plot_runset(df,labelstr,colorstr):
 def main():
 
     gcc7 = Run.Run('gcc_7.3/slurm-2989705.out')
-    gcc7.append('gcc_7.3/slurm-2989716.out')
-    gcc7.append('gcc_7.3/slurm-2989748.out')
+    #gcc7.append('gcc_7.3/slurm-2989716.out')
+    #gcc7.append('gcc_7.3/slurm-2989748.out')
     gcc7.calculate_statistics()
 
     gcc10 = Run.Run('gcc_10.2/slurm-2990366.out')
-    gcc10.append('gcc_10.2/slurm-2990371.out')
-    gcc10.append('gcc_10.2/slurm-2990378.out')
+    #gcc10.append('gcc_10.2/slurm-2990371.out')
+    #gcc10.append('gcc_10.2/slurm-2990378.out')
     gcc10.calculate_statistics()
 
     intel18 = Run.Run('intel_18/slurm-2991164.out')
+    #intel18.append('intel_18/slurm-2991941.out')
+    #intel18.append('intel_18/slurm-2991945.out')
     intel18.calculate_statistics()
+
+    intel18_forced_inline = Run.Run('intel_18/slurm-2992383.out')
+    intel18_forced_inline.calculate_statistics()
 
     parser = argparse.ArgumentParser(
         description="Plot the growth rate against the timestep."
@@ -107,14 +112,24 @@ def main():
     defaults.xlabel = "local grid size"
     defaults.loglog = True
 
-    ax = plot_runset(gcc7.cloop_weak,'gcc 7.3 C loop','b')
-    ax = plot_runset(gcc7.boutfor_weak,'gcc 7.3 BOUT for','g')
+    ax = plot_runset(gcc7.cloop_weak,'gcc 7.3 C loop','b','o')
+    ax = plot_runset(gcc7.boutfor_weak,'gcc 7.3 BOUT for','b','s')
 
-    ax = plot_runset(gcc10.cloop_weak,'gcc 10.2 C loop','r')
-    ax = plot_runset(gcc10.boutfor_weak,'gcc 10.2 BOUT for','Orange')
+    ax = plot_runset(gcc10.cloop_weak,'gcc 10.2 C loop','r','o')
+    ax = plot_runset(gcc10.boutfor_weak,'gcc 10.2 BOUT for','r','s')
 
-    ax = plot_runset(intel18.cloop_weak,'intel 18 C loop','k')
-    ax = plot_runset(intel18.boutfor_weak,'intel 18 BOUT for','m')
+    ax = plot_runset(intel18.cloop_weak,'intel 18 C loop','g','o')
+    ax = plot_runset(intel18.boutfor_weak,'intel 18 BOUT for','g','s')
+
+    ax = plot_runset(intel18_forced_inline.cloop_weak,'intel 18 C loop','m','o')
+    ax = plot_runset(intel18_forced_inline.boutfor_weak,'intel 18 BOUT for','m','s')
+
+    h,l = ax.get_legend_handles_labels()
+    #leg1 = ax.legend(h[3::8],["gcc 7.3", "gcc 10.2", 'intel 18'], loc=0, fontsize=12)
+    #leg2 = ax.legend(h[3::4],["C loop", "BOUT for"], loc=4, fontsize=12)
+    leg1 = ax.legend(h[1::4],["gcc 7.3", "gcc 10.2", 'intel 18','intel 18 forced inlining'], loc=0, fontsize=12)
+    leg2 = ax.legend(h[1::2],["C loop", "BOUT for"], loc=4, fontsize=12)
+    plt.gca().add_artist(leg1)
 
 ###    if leg:
 ###        plt.legend(loc=0, fontsize=args.legend_fontsize)

@@ -102,6 +102,12 @@ def main():
     efficiency = get_scaling_efficiency(nprocs, times)
     runsets.append(RunSet(nprocs,times,efficiency,"intel-intelmpi"))
 
+    # intel-intelmpi-forced inlining
+    nprocs = np.array([2, 4, 8, 16, 32, 64])
+    times = read_run_times(nprocs, "intel-intelmpi-2018-forced-inline")
+    efficiency = get_scaling_efficiency(nprocs, times)
+    runsets.append(RunSet(nprocs,times,efficiency,"intel-intelmpi forced inline"))
+
     plot_strong_scaling(runsets)
     plot_scaling_efficiency(runsets)
 
