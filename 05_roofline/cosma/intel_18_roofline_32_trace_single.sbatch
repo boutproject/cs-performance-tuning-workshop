@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-#SBATCH -n1
+#SBATCH -n32
 #SBATCH --time=1:00:00
 #SBATCH --account=do008
 #SBATCH --partition=bluefield1
@@ -35,8 +35,8 @@ EXE=iterator
 #RUNCMD="mpirun --mca btl_tcp_if_include p1p2 -x UCX_NET_DEVICES=mlx5_1:1"
 RUNCMD="mpirun"
 
-$RUNCMD -n 1 -gtool "advixe-cl -collect survey -project-dir results-1m1p-single:0" ./${EXE}
-$RUNCMD -n 1 -gtool "advixe-cl -collect tripcounts -flop -project-dir results-1m1p-single:0" ./${EXE}
+$RUNCMD -n 32 -gtool "advixe-cl -collect survey -project-dir results-32m1p-single:0" ./${EXE}
+$RUNCMD -n 32 -gtool "advixe-cl -collect tripcounts -flop -project-dir results-32m1p-single:0" ./${EXE}
 
 #$RUNCMD -n 32 advixe-cl -collect survey -project-dir results-32 -- ./${EXE}
 #$RUNCMD -n 32 advixe-cl -collect tripcounts -flop -project-dir results-32 -- ./${EXE}
