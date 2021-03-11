@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-#SBATCH -n64
+#SBATCH -n32
 #SBATCH --time=10:00
 #SBATCH --account=do008
 #SBATCH --partition=bluefield1
@@ -30,5 +30,5 @@ export executable="../../storm3d/filaments"
 cd $SLURM_SUBMIT_DIR
 #./runtest.py $SLURM_NTASKS
 
-mpiexec -np 64 -iface p1p2 aps $APS_ARGS $executable
+mpiexec -np 32 -iface p1p2 aps $APS_ARGS $executable
 

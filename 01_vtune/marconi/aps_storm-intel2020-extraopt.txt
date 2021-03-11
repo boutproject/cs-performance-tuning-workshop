@@ -1,0 +1,587 @@
+| Summary information
+|--------------------------------------------------------------------
+  Application                : filaments
+  Report creation date       : 2021-02-25 21:52:17
+  Number of ranks            : 48
+  Ranks per node             : 48
+  HW Platform                : Intel(R) Xeon(R) Processor code named Skylake
+  Frequency                  : 2.10 GHz
+  Logical core count per node: 48
+  Collector type             : Event-based counting driver
+  Used statistics            : aps_storm-intel2020-extraopt
+|
+| Your application is memory bound.
+| Use memory access analysis tools like Intel(R) VTune(TM) Profiler for a  detailed metric breakdown by memory hierarchy, memory bandwidth, and correlation by memory objects.
+|
+  Elapsed time:                              200.60 sec
+  SP GFLOPS:                                  0.00
+  DP GFLOPS:                                 24.07
+  Average CPU Frequency:                      2.08 GHz
+  IPC Rate:                                   1.55
+  MPI Time:                   30.64 sec            15.28%
+| Your application is MPI bound. This may be caused by high busy wait time
+| inside the library (imbalance), non-optimal communication schema or MPI
+| library settings. Explore the MPI Imbalance metric if it is available or use
+| MPI profiling tools like Intel(R) Trace Analyzer and Collector to explore
+| possible performance bottlenecks.
+    MPI Imbalance:             9.77 sec             4.87%
+| The application workload is not well balanced between MPI ranks.For more
+| details about the MPI communication scheme use Intel(R) Trace Analyzer and
+| Collector available as part of Intel(R) Parallel Studio XE Cluster Edition.
+    Top 5 MPI functions (avg time):
+        Waitany                     11.94 sec  ( 5.95 %)
+        Send                        10.46 sec  ( 5.22 %)
+        Allreduce                    3.92 sec  ( 1.95 %)
+        Init                         3.90 sec  ( 1.94 %)
+        Irecv                        0.32 sec  ( 0.16 %)
+  Interconnect Outgoing Bandwidth
+       Peak:                    8.53  GB/sec
+       Average:                 0.01  GB/sec
+       Bound:                   0.00 %
+  Interconnect Incoming Bandwidth
+       Peak:                    0.21  GB/sec
+       Average:                 0.00  GB/sec
+       Bound:                   0.00 %
+  Interconnect Outgoing Packet Rate
+       Peak:                    1.04  Million Packets/sec
+       Average:                 0.00  Million Packets/sec
+       Bound:                   0.00 %
+  Interconnect Incoming Packet Rate
+       Peak:                    0.07  Million Packets/sec
+       Average:                 0.00  Million Packets/sec
+       Bound:                   0.00 %
+  Memory Stalls:                              37.40% of pipeline slots
+| The metric value can indicate that a significant fraction of execution
+| pipeline slots could be stalled due to demand memory load and stores. See the
+| second level metrics to define if the application is cache- or DRAM-bound and
+| the NUMA efficiency. Use Intel(R) VTune(TM) Profiler Memory Access analysis to
+| review a detailed metric breakdown by memory hierarchy, memory bandwidth
+| information, and correlation by memory objects.
+    Cache Stalls:                             15.60% of cycles
+    DRAM Stalls:                              16.60% of cycles
+    DRAM Bandwidth
+       Peak:                  178.61  GB/sec
+       Average:               133.59  GB/sec
+       Bound:                  91.00 %
+| The system spent much time heavily utilizing DRAM bandwidth. Improve data
+| accesses to reduce cacheline transfers from/to memory using these possible
+| techniques: 1) consume all bytes of each cacheline before it is evicted (for
+| example, reorder structure elements and split non-hot ones); 2) merge
+| compute-limited and bandwidth-limited loops; 3) use NUMA optimizations on a
+| multi-socket system. Note: software prefetches do not help a bandwidth-limited
+| application. Run Intel(R) VTune(TM) Profiler Memory Access Analysis to
+| identify data structures to be allocated in High Bandwidth Memory (HBM), if
+| available.
+    NUMA: % of Remote Accesses:                0.60%
+  Vectorization:                              8.90%
+| A significant fraction of floating point arithmetic instructions are scalar.
+| Use Intel Advisor to see possible reasons why the code was not vectorized.
+     Instruction Mix:
+       SP FLOPs:                              0.00% of uOps
+       DP FLOPs:                             13.80% of uOps
+          Packed:                             9.30% from DP FP
+             128-bit:                             5.30%
+| A significant fraction of floating point arithmetic vector instructions
+| executed with partial vector load. A possible reason is compilation with a
+| legacy instruction set. Check the compiler options. Another possible reason is
+| compiler code generation specifics. Use Intel(R) Advisor to learn more.
+             256-bit:                             3.90%
+             512-bit:                             0.10%
+          Scalar:                            90.70% from DP FP
+| A significant fraction of floating point arithmetic instructions are scalar.
+| Use Intel(R) Advisor to see possible reasons why the code was not vectorized.
+       Non-FP:                               85.50% of uOps
+     FP Arith/Mem Rd Instr. Ratio:            0.51
+     FP Arith/Mem Wr Instr. Ratio:            0.99
+ Disk I/O Bound:             0.03 sec ( 0.02 %)
+       Data read:            524.5 MB
+       Data written:         239.4 MB
+ Memory Footprint:
+ Resident:
+       Per node:
+           Peak resident set size    :         7450.43 MB (node r130c01s01)
+           Average resident set size :         7450.43 MB
+       Per rank:
+           Peak resident set size    :          157.13 MB (rank 10)
+           Average resident set size :          155.22 MB
+ Virtual:
+       Per node:
+           Peak memory consumption    :       186008.08 MB (node r130c01s01)
+           Average memory consumption :       186008.08 MB
+       Per rank:
+           Peak memory consumption    :         3875.66 MB (rank 23)
+           Average memory consumption :         3875.17 MB
+
+Graphical representation of this data is available in the HTML report: /marconi_work/FUA34_SOLBOUT4/jomotani/intel-versions/storm-master/tests3d/test-nonisothermal/aps_report_20210225_221111.html
+| Counters, Memory and Disk usage statistics for all Ranks
+|---------------------------------------------------------
+Computation:           84.51%
+MPI        :           15.49%
+
+| Virtual Memory Usage per Rank:
+          Total:       186008.08 MB (all ranks)
+            MIN:         3868.38 MB (rank 6)
+            MAX:         3875.66 MB (rank 23)
+            AVG:         3875.17 MB
+
+| Resident Memory Usage per Rank:
+          Total:         7450.43 MB (all ranks)
+            MIN:          154.48 MB (rank 45)
+            MAX:          157.13 MB (rank 10)
+            AVG:          155.22 MB
+
+| MPI Time per Rank:
+          Total:         1470.89 sec (all ranks)
+            MIN:           16.23 sec (rank 47)
+            MAX:           36.25 sec (rank 22)
+            AVG:           30.64 sec
+
+| MPI Imbalance per Rank:
+          Total:          468.78 sec (all ranks)
+            MIN:            4.99 sec (rank 47)
+            MAX:           17.71 sec (rank 23)
+            AVG:            9.77 sec
+
+| Data Read per Rank:
+          Total:          524.48 MB (all ranks)
+            MIN:           10.93 MB (rank 1)
+            MAX:           10.93 MB (rank 0)
+            AVG:           10.93 MB
+
+| Data Written per Rank:
+          Total:          239.38 MB (all ranks)
+            MIN:            4.99 MB (rank 25)
+            MAX:            5.02 MB (rank 0)
+            AVG:            4.99 MB
+
+| I/O Wait Time per Rank:
+          Total:            1.48 sec (all ranks)
+            MIN:            0.02 sec (rank 8)
+            MAX:            0.05 sec (rank 3)
+            AVG:            0.03 sec
+
+| Instructions Per Cycle Rate
+            MIN:            1.55 (node r130c01s01,s.*)
+            MAX:            1.55 (node r130c01s01,s.*)
+            AVG:            1.55
+
+| Memory Stalls
+            MIN:           37.40 (node r130c01s01,s.*)
+            MAX:           37.40 (node r130c01s01,s.*)
+            AVG:           37.40
+
+| SP GFLOPS
+          Total:            0.00
+            MIN:            0.00 (node r130c01s01,s.*)
+            MAX:            0.00 (node r130c01s01,s.*)
+            AVG:            0.00
+
+| DP GFLOPS
+          Total:           24.07
+            MIN:           24.07 (node r130c01s01,s.*)
+            MAX:           24.07 (node r130c01s01,s.*)
+            AVG:           24.07
+
+| Elapsed Time
+            MIN:          200.60 (node r130c01s01,s.*)
+            MAX:          200.60 (node r130c01s01,s.*)
+            AVG:          200.60
+
+| Cache Bound
+            MIN:           15.60 (node r130c01s01,s.*)
+            MAX:           15.60 (node r130c01s01,s.*)
+            AVG:           15.60
+
+| DRAM Bound
+            MIN:           16.60 (node r130c01s01,s.*)
+            MAX:           16.60 (node r130c01s01,s.*)
+            AVG:           16.60
+
+| Numa: % of Remote Accesses
+            MIN:            0.60 (node r130c01s01,s.*)
+            MAX:            0.60 (node r130c01s01,s.*)
+            AVG:            0.60
+
+| Vectorization
+            MIN:            8.90 (node r130c01s01,s.*)
+            MAX:            8.90 (node r130c01s01,s.*)
+            AVG:            8.90
+
+| SP FLOPs
+            MIN:            0.00 (node r130c01s01,s.*)
+            MAX:            0.00 (node r130c01s01,s.*)
+            AVG:            0.00
+
+| Packed
+            MIN:            0.00 (node r130c01s01,s.*)
+            MAX:            0.00 (node r130c01s01,s.*)
+            AVG:            0.00
+
+| 128-bit
+            MIN:            0.00 (node r130c01s01,s.*)
+            MAX:            0.00 (node r130c01s01,s.*)
+            AVG:            0.00
+
+| 256-bit
+            MIN:            0.00 (node r130c01s01,s.*)
+            MAX:            0.00 (node r130c01s01,s.*)
+            AVG:            0.00
+
+| 512-bit
+            MIN:            0.00 (node r130c01s01,s.*)
+            MAX:            0.00 (node r130c01s01,s.*)
+            AVG:            0.00
+
+| Scalar
+            MIN:          100.00 (node r130c01s01,s.*)
+            MAX:          100.00 (node r130c01s01,s.*)
+            AVG:          100.00
+
+| DP FLOPs
+            MIN:           13.80 (node r130c01s01,s.*)
+            MAX:           13.80 (node r130c01s01,s.*)
+            AVG:           13.80
+
+| Packed
+            MIN:            9.30 (node r130c01s01,s.*)
+            MAX:            9.30 (node r130c01s01,s.*)
+            AVG:            9.30
+
+| 128-bit
+            MIN:            5.30 (node r130c01s01,s.*)
+            MAX:            5.30 (node r130c01s01,s.*)
+            AVG:            5.30
+
+| 256-bit
+            MIN:            3.90 (node r130c01s01,s.*)
+            MAX:            3.90 (node r130c01s01,s.*)
+            AVG:            3.90
+
+| 512-bit
+            MIN:            0.10 (node r130c01s01,s.*)
+            MAX:            0.10 (node r130c01s01,s.*)
+            AVG:            0.10
+
+| Scalar
+            MIN:           90.70 (node r130c01s01,s.*)
+            MAX:           90.70 (node r130c01s01,s.*)
+            AVG:           90.70
+
+| Non-FP
+            MIN:           85.50 (node r130c01s01,s.*)
+            MAX:           85.50 (node r130c01s01,s.*)
+            AVG:           85.50
+
+| FP Arith/Mem Rd Instr. Ratio
+            MIN:            0.51 (node r130c01s01,s.*)
+            MAX:            0.51 (node r130c01s01,s.*)
+            AVG:            0.51
+
+| FP Arith/Mem Wr Instr. Ratio
+            MIN:            0.99 (node r130c01s01,s.*)
+            MAX:            0.99 (node r130c01s01,s.*)
+            AVG:            0.99
+
+| Average CPU Frequency
+            MIN:   2075293184.00 (node r130c01s01,s.*)
+            MAX:   2075293184.00 (node r130c01s01,s.*)
+            AVG:   2075293184.00
+
+| DRAM Bandwidth Peak,  GB/sec
+            MIN:          178.61 (node r130c01s01,s.*)
+            MAX:          178.61 (node r130c01s01,s.*)
+            AVG:          178.61
+
+| DRAM Bandwidth Average,  GB/sec
+            MIN:          133.59 (node r130c01s01,s.*)
+            MAX:          133.59 (node r130c01s01,s.*)
+            AVG:          133.59
+
+| DRAM Bandwidth Bound, %
+            MIN:           91.00 (node r130c01s01,s.*)
+            MAX:           91.00 (node r130c01s01,s.*)
+            AVG:           91.00
+
+| Interconnect Outgoing Bandwidth Peak,  GB/sec
+            MIN:            8.53 (node r130c01s01,s.*)
+            MAX:            8.53 (node r130c01s01,s.*)
+            AVG:            8.53
+
+| Interconnect Outgoing Bandwidth Average,  GB/sec
+            MIN:            0.01 (node r130c01s01,s.*)
+            MAX:            0.01 (node r130c01s01,s.*)
+            AVG:            0.01
+
+| Interconnect Outgoing Bandwidth Bound, %
+            MIN:            0.00 (node r130c01s01,s.*)
+            MAX:            0.00 (node r130c01s01,s.*)
+            AVG:            0.00
+
+| Interconnect Incoming Bandwidth Peak,  GB/sec
+            MIN:            0.21 (node r130c01s01,s.*)
+            MAX:            0.21 (node r130c01s01,s.*)
+            AVG:            0.21
+
+| Interconnect Incoming Bandwidth Average,  GB/sec
+            MIN:            0.00 (node r130c01s01,s.*)
+            MAX:            0.00 (node r130c01s01,s.*)
+            AVG:            0.00
+
+| Interconnect Incoming Bandwidth Bound, %
+            MIN:            0.00 (node r130c01s01,s.*)
+            MAX:            0.00 (node r130c01s01,s.*)
+            AVG:            0.00
+
+| Interconnect Outgoing Packet Rate Peak,  Million Packets/sec
+            MIN:            1.04 (node r130c01s01,s.*)
+            MAX:            1.04 (node r130c01s01,s.*)
+            AVG:            1.04
+
+| Interconnect Outgoing Packet Rate Average,  Million Packets/sec
+            MIN:            0.00 (node r130c01s01,s.*)
+            MAX:            0.00 (node r130c01s01,s.*)
+            AVG:            0.00
+
+| Interconnect Outgoing Packet Rate Bound, %
+            MIN:            0.00 (node r130c01s01,s.*)
+            MAX:            0.00 (node r130c01s01,s.*)
+            AVG:            0.00
+
+| Interconnect Incoming Packet Rate Peak,  Million Packets/sec
+            MIN:            0.07 (node r130c01s01,s.*)
+            MAX:            0.07 (node r130c01s01,s.*)
+            AVG:            0.07
+
+| Interconnect Incoming Packet Rate Average,  Million Packets/sec
+            MIN:            0.00 (node r130c01s01,s.*)
+            MAX:            0.00 (node r130c01s01,s.*)
+            AVG:            0.00
+
+| Interconnect Incoming Packet Rate Bound, %
+            MIN:            0.00 (node r130c01s01,s.*)
+            MAX:            0.00 (node r130c01s01,s.*)
+            AVG:            0.00
+
+| Average CPU Utilization
+            MIN:           44.58 (node r130c01s01,s.*)
+            MAX:           44.58 (node r130c01s01,s.*)
+            AVG:           44.58
+
+| MPI Time per Rank for all Ranks
+|--------------------------------------------------------------------------------------------------
+| Rank     Elapsed Time(sec)    MPI Time(sec)     MPI Time(%)     Imbalance(sec)   Imbalance(%)
+|--------------------------------------------------------------------------------------------------
+  0022            197.80            36.25           18.32            16.70            8.45
+  0023            197.72            36.13           18.27            17.71            8.96
+  0046            197.79            33.55           16.96            14.84            7.50
+  0002            197.77            33.33           16.85            10.85            5.48
+  0045            197.80            32.34           16.35            13.07            6.61
+| [filtered out 16 lines]
+  0021            197.80            31.32           15.83            12.02            6.08
+  0034            197.80            31.29           15.82            10.30            5.21
+  0033            197.77            31.22           15.79             9.44            4.77
+  0013            197.77            31.13           15.74             9.30            4.70
+  0041            197.77            31.00           15.67            10.25            5.18
+| [filtered out 17 lines]
+  0044            197.77            28.87           14.60             8.71            4.40
+  0028            197.79            28.80           14.56             7.70            3.89
+  0012            197.80            28.55           14.43             7.17            3.63
+  0000            197.73            21.23           10.74             6.46            3.27
+  0047            197.77            16.23            8.21             4.99            2.52
+|==================================================================================================
+| TOTAL          9494.60          1470.89           15.49           468.78            4.94
+| AVG             197.80            30.64           15.49             9.77            4.94
+
+| Number of ranks = 48
+
+|#########################################################
+| RANK 22
+|#########################################################
+| Elapsed Time = 197.80 (sec)
+| MPI Time  = 36.25 (sec) 18.32%
+| MPI Imbalance  = 0.00 (sec) 8.45%
+|
+|--------------------------------------------------------------------------------------------------------------------------
+|           Function        Time(sec)          Time(%)       Volume(MB)        Volume(%)            Calls    AvrMsgSize(B)
+|--------------------------------------------------------------------------------------------------------------------------
+         MPI_Waitany            17.91             9.05              N/A              N/A           720712              N/A
+            MPI_Send             9.79             4.95              N/A              N/A           640584              N/A
+       MPI_Allreduce             4.22             2.14              N/A              N/A               15              N/A
+            MPI_Init             3.90             1.97              N/A              N/A                1              N/A
+| [filtered out 12 lines]
+|==========================================================================================================================
+| TOTAL                         36.25            18.32              N/A              N/A          2002270              N/A
+
+|--------------------------------------------------------------------------------------------------------------------------
+|           Function        Time(sec)          Time(%)       Volume(MB)        Volume(%)            Calls       MsgSize(B)
+|--------------------------------------------------------------------------------------------------------------------------
+         MPI_Waitany            17.91             9.05              N/A              N/A           720712              N/A
+|--------------------------------------------------------------------------------------------------------------------------
+            MPI_Send             9.79             4.95              N/A              N/A           640584              N/A
+|--------------------------------------------------------------------------------------------------------------------------
+       MPI_Allreduce             4.22             2.14              N/A              N/A               15              N/A
+|--------------------------------------------------------------------------------------------------------------------------
+            MPI_Init             3.90             1.97              N/A              N/A                1              N/A
+|--------------------------------------------------------------------------------------------------------------------------
+           MPI_Irecv             0.31             0.16              N/A              N/A           640584              N/A
+|--------------------------------------------------------------------------------------------------------------------------
+     MPI_Comm_create             0.06             0.03              N/A              N/A               50              N/A
+|--------------------------------------------------------------------------------------------------------------------------
+        MPI_Finalize             0.02             0.01              N/A              N/A                1              N/A
+|--------------------------------------------------------------------------------------------------------------------------
+         MPI_Barrier             0.02             0.01              N/A              N/A                1              N/A
+|--------------------------------------------------------------------------------------------------------------------------
+        MPI_Comm_dup             0.01             0.00              N/A              N/A                3              N/A
+|--------------------------------------------------------------------------------------------------------------------------
+       MPI_Comm_rank             0.00             0.00              N/A              N/A              112              N/A
+|--------------------------------------------------------------------------------------------------------------------------
+      MPI_Group_free             0.00             0.00              N/A              N/A               99              N/A
+|--------------------------------------------------------------------------------------------------------------------------
+       MPI_Comm_free             0.00             0.00              N/A              N/A                4              N/A
+|--------------------------------------------------------------------------------------------------------------------------
+MPI_Group_range_incl             0.00             0.00              N/A              N/A               74              N/A
+|--------------------------------------------------------------------------------------------------------------------------
+     MPI_Group_union             0.00             0.00              N/A              N/A               24              N/A
+|--------------------------------------------------------------------------------------------------------------------------
+       MPI_Comm_size             0.00             0.00              N/A              N/A                5              N/A
+|--------------------------------------------------------------------------------------------------------------------------
+      MPI_Comm_group             0.00             0.00              N/A              N/A                1              N/A
+|==========================================================================================================================
+
+WARNING: No information about Volume of transfers. Set the APS_STAT_LEVEL value to 2 or greater to generate results. 
+|#########################################################
+| RANK 13
+|#########################################################
+| Elapsed Time = 197.77 (sec)
+| MPI Time  = 31.13 (sec) 15.74%
+| MPI Imbalance  = 0.00 (sec) 4.70%
+|
+|--------------------------------------------------------------------------------------------------------------------------
+|           Function        Time(sec)          Time(%)       Volume(MB)        Volume(%)            Calls    AvrMsgSize(B)
+|--------------------------------------------------------------------------------------------------------------------------
+         MPI_Waitany            12.30             6.22              N/A              N/A           720712              N/A
+            MPI_Send            10.33             5.22              N/A              N/A           640584              N/A
+       MPI_Allreduce             4.22             2.14              N/A              N/A               15              N/A
+            MPI_Init             3.87             1.96              N/A              N/A                1              N/A
+| [filtered out 12 lines]
+|==========================================================================================================================
+| TOTAL                         31.13            15.74              N/A              N/A          2002270              N/A
+
+|--------------------------------------------------------------------------------------------------------------------------
+|           Function        Time(sec)          Time(%)       Volume(MB)        Volume(%)            Calls       MsgSize(B)
+|--------------------------------------------------------------------------------------------------------------------------
+         MPI_Waitany            12.30             6.22              N/A              N/A           720712              N/A
+|--------------------------------------------------------------------------------------------------------------------------
+            MPI_Send            10.33             5.22              N/A              N/A           640584              N/A
+|--------------------------------------------------------------------------------------------------------------------------
+       MPI_Allreduce             4.22             2.14              N/A              N/A               15              N/A
+|--------------------------------------------------------------------------------------------------------------------------
+            MPI_Init             3.87             1.96              N/A              N/A                1              N/A
+|--------------------------------------------------------------------------------------------------------------------------
+           MPI_Irecv             0.28             0.14              N/A              N/A           640584              N/A
+|--------------------------------------------------------------------------------------------------------------------------
+     MPI_Comm_create             0.07             0.03              N/A              N/A               50              N/A
+|--------------------------------------------------------------------------------------------------------------------------
+        MPI_Finalize             0.03             0.01              N/A              N/A                1              N/A
+|--------------------------------------------------------------------------------------------------------------------------
+         MPI_Barrier             0.02             0.01              N/A              N/A                1              N/A
+|--------------------------------------------------------------------------------------------------------------------------
+        MPI_Comm_dup             0.01             0.00              N/A              N/A                3              N/A
+|--------------------------------------------------------------------------------------------------------------------------
+      MPI_Group_free             0.00             0.00              N/A              N/A               99              N/A
+|--------------------------------------------------------------------------------------------------------------------------
+       MPI_Comm_rank             0.00             0.00              N/A              N/A              112              N/A
+|--------------------------------------------------------------------------------------------------------------------------
+       MPI_Comm_free             0.00             0.00              N/A              N/A                4              N/A
+|--------------------------------------------------------------------------------------------------------------------------
+MPI_Group_range_incl             0.00             0.00              N/A              N/A               74              N/A
+|--------------------------------------------------------------------------------------------------------------------------
+       MPI_Comm_size             0.00             0.00              N/A              N/A                5              N/A
+|--------------------------------------------------------------------------------------------------------------------------
+     MPI_Group_union             0.00             0.00              N/A              N/A               24              N/A
+|--------------------------------------------------------------------------------------------------------------------------
+      MPI_Comm_group             0.00             0.00              N/A              N/A                1              N/A
+|==========================================================================================================================
+
+WARNING: No information about Volume of transfers. Set the APS_STAT_LEVEL value to 2 or greater to generate results. 
+|#########################################################
+| RANK 47
+|#########################################################
+| Elapsed Time = 197.77 (sec)
+| MPI Time  = 16.23 (sec) 8.21%
+| MPI Imbalance  = 0.00 (sec) 2.52%
+|
+|--------------------------------------------------------------------------------------------------------------------------
+|           Function        Time(sec)          Time(%)       Volume(MB)        Volume(%)            Calls    AvrMsgSize(B)
+|--------------------------------------------------------------------------------------------------------------------------
+            MPI_Send             5.66             2.86              N/A              N/A           580466              N/A
+       MPI_Allreduce             4.37             2.21              N/A              N/A               15              N/A
+            MPI_Init             3.87             1.96              N/A              N/A                1              N/A
+| [filtered out 13 lines]
+|==========================================================================================================================
+| TOTAL                         16.23             8.21              N/A              N/A          1821916              N/A
+
+|--------------------------------------------------------------------------------------------------------------------------
+|           Function        Time(sec)          Time(%)       Volume(MB)        Volume(%)            Calls       MsgSize(B)
+|--------------------------------------------------------------------------------------------------------------------------
+            MPI_Send             5.66             2.86              N/A              N/A           580466              N/A
+|--------------------------------------------------------------------------------------------------------------------------
+       MPI_Allreduce             4.37             2.21              N/A              N/A               15              N/A
+|--------------------------------------------------------------------------------------------------------------------------
+            MPI_Init             3.87             1.96              N/A              N/A                1              N/A
+|--------------------------------------------------------------------------------------------------------------------------
+         MPI_Waitany             1.88             0.95              N/A              N/A           660594              N/A
+|--------------------------------------------------------------------------------------------------------------------------
+           MPI_Irecv             0.34             0.17              N/A              N/A           580466              N/A
+|--------------------------------------------------------------------------------------------------------------------------
+     MPI_Comm_create             0.07             0.03              N/A              N/A               50              N/A
+|--------------------------------------------------------------------------------------------------------------------------
+        MPI_Finalize             0.02             0.01              N/A              N/A                1              N/A
+|--------------------------------------------------------------------------------------------------------------------------
+         MPI_Barrier             0.01             0.01              N/A              N/A                1              N/A
+|--------------------------------------------------------------------------------------------------------------------------
+        MPI_Comm_dup             0.01             0.00              N/A              N/A                3              N/A
+|--------------------------------------------------------------------------------------------------------------------------
+       MPI_Comm_rank             0.00             0.00              N/A              N/A              112              N/A
+|--------------------------------------------------------------------------------------------------------------------------
+       MPI_Comm_free             0.00             0.00              N/A              N/A                4              N/A
+|--------------------------------------------------------------------------------------------------------------------------
+MPI_Group_range_incl             0.00             0.00              N/A              N/A               74              N/A
+|--------------------------------------------------------------------------------------------------------------------------
+      MPI_Group_free             0.00             0.00              N/A              N/A               99              N/A
+|--------------------------------------------------------------------------------------------------------------------------
+     MPI_Group_union             0.00             0.00              N/A              N/A               24              N/A
+|--------------------------------------------------------------------------------------------------------------------------
+       MPI_Comm_size             0.00             0.00              N/A              N/A                5              N/A
+|--------------------------------------------------------------------------------------------------------------------------
+      MPI_Comm_group             0.00             0.00              N/A              N/A                1              N/A
+|==========================================================================================================================
+
+WARNING: No information about Volume of transfers. Set the APS_STAT_LEVEL value to 2 or greater to generate results. 
+| % - percentage of MPI functions total time
+| Function summary for all Ranks
+|-----------------------------------------------------------------------------------------------------------------------------------------------------------
+|           Function              Time(sec)          Time(%)        Imbalance(sec)          Imbalance(%)       Volume(MB)        Volume(%)             Calls
+|-----------------------------------------------------------------------------------------------------------------------------------------------------------
+               MPI_Waitany           573.27            38.97                195.11                13.26               N/A              N/A          34353704
+                                Min: 0.0000          
+                                Avg: 0.0000          
+                                Max: 0.9834          
+|-----------------------------------------------------------------------------------------------------------------------------------------------------------
+| [filtered out 2 lines]
+                                Avg: 0.0000          
+                                Max: 0.0281          
+|-----------------------------------------------------------------------------------------------------------------------------------------------------------
+             MPI_Allreduce           188.13            12.79                186.56                12.68               N/A              N/A               720
+                                Min: 0.0000          
+| [filtered out 3 lines]
+                  MPI_Init           187.03            12.72                  0.00                 0.00               N/A              N/A                48
+                                Min: 3.8229          
+                                Avg: 3.8965          
+                                Max: 4.0332          
+|-----------------------------------------------------------------------------------------------------------------------------------------------------------
+| [filtered out 44 lines]
+|===========================================================================================================================================================
+| TOTAL                             1470.89           100.00                468.78                31.87               N/A              N/A          95387544
+
+WARNING: No information about Volume of transfers. Set the APS_STAT_LEVEL value to 2 or greater to generate results. 
