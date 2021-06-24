@@ -13,7 +13,7 @@ to cs-performanceworkshop space, channel bout.
 * Afternoon: setting up BOUT v4.4.0-alpha + STORM next on DINE. Got basic
   output from VTune APS.
 
-# Workshop 6 - 24/6/21
+## Workshop 6 - 24/6/21
 
 + Morning: Talks and tutorials on
   [MAQAO](https://gitlab.exascale-computing.eu/MAQAO/MAQAO). 
